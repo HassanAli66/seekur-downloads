@@ -1,162 +1,398 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Seekur — Download</title>
-  <meta name="description" content="Seekur turns your existing store cameras into a smart assistant that spots unusual activity and asks you to confirm before anyone is alerted.">
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <style>
-    :root { --bg:#f6f7fb; --surface:#fff; --border:#e4e7f0; --text:#11142a; --muted:#5d6481; --brand:#4f46e5; --soft:#eef0ff; --ok:#157f3d; --warn:#9a5b00; --warn-soft:#fff4dc; --radius:16px; }
-    @media (prefers-color-scheme: dark) { :root { --bg:#0b0d18; --surface:#141729; --border:#262b45; --text:#eef0fb; --muted:#a5abc6; --brand:#7c74ff; --soft:#232450; --warn:#fbbf24; --warn-soft:#2d2410; } }
-    * { box-sizing:border-box } body { margin:0; font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--text); background:radial-gradient(1100px 520px at 50% -12%, var(--soft), transparent 70%), var(--bg); }
-    a { color:var(--brand) } .wrap { width:min(1080px, 92vw); margin:0 auto }
-    header { display:flex; align-items:center; justify-content:space-between; padding:22px 0 }
-    .logo { display:flex; align-items:center; gap:10px; font-weight:750; font-size:20px } .logo img { width:32px }
-    .hero { text-align:center; padding:56px 0 30px } .hero h1 { font-size:clamp(32px,5vw,52px); line-height:1.08; letter-spacing:-.025em; margin:0 } .hero p { color:var(--muted); font-size:19px; max-width:640px; margin:18px auto 0 }
-    .cta { margin:34px 0 8px; display:flex; flex-direction:column; align-items:center; gap:12px }
-    .btn { display:inline-flex; align-items:center; gap:10px; background:var(--brand); color:#fff; padding:15px 26px; border-radius:14px; font-weight:700; font-size:17px; text-decoration:none; border:0; cursor:pointer; box-shadow:0 10px 30px rgba(79,70,229,.25) }
-    .btn.alt { background:var(--surface); color:var(--text); border:1px solid var(--border); box-shadow:none; font-size:15px; padding:10px 16px }
-    .meta { color:var(--muted); font-size:13.5px } .meta code { background:var(--surface); border:1px solid var(--border); padding:1px 6px; border-radius:6px; font-size:12px }
-    .tabs { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; margin:36px 0 18px }
-    .tabs button { background:transparent; border:1px solid var(--border); color:var(--muted); padding:8px 16px; border-radius:99px; font:600 14px inherit; cursor:pointer }
-    .tabs button.on { background:var(--text); color:var(--bg); border-color:var(--text) }
-    .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
-    .steps { counter-reset:s; list-style:none; padding:0; margin:0; display:grid; gap:16px }
-    .steps li { counter-increment:s; display:grid; grid-template-columns:36px 1fr; gap:14px; align-items:start }
-    .steps li::before { content:counter(s); width:32px; height:32px; border-radius:50%; background:var(--soft); color:var(--brand); display:grid; place-items:center; font-weight:750 }
-    .steps b { display:block } .steps span { color:var(--muted); font-size:14.5px }
-    pre { background:#0f1222; color:#e6e8f5; padding:14px 16px; border-radius:12px; overflow:auto; font-size:13.5px; margin:8px 0 0; position:relative }
-    .copy { position:absolute; top:8px; right:8px; background:#262b45; color:#c9cde3; border:0; border-radius:8px; padding:4px 10px; font-size:12px; cursor:pointer }
-    .note { background:var(--warn-soft); color:var(--warn); border-radius:12px; padding:12px 16px; font-size:14px; margin-top:18px }
-    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:56px 0 }
-    .grid .card h3 { margin:0 0 6px } .grid .card p { margin:0; color:var(--muted); font-size:15px }
-    .req { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px } .req div { font-size:14.5px } .req b { display:block; margin-bottom:4px }
-    footer { color:var(--muted); font-size:13px; text-align:center; padding:40px 0 }
-    .hidden { display:none }
-    @media (max-width:820px){ .grid,.req{ grid-template-columns:1fr } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seekur — store cameras that pay attention</title>
+<meta name="description" content="Seekur watches your existing store cameras for unusual activity and asks a person to confirm before anyone is alerted. Runs on your own computer; video never leaves the store.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<style>
+:root{
+  --ink:#0b0e1d; --text:#141831; --muted:#5b6283; --faint:#8b91ad; --line:#e6e8f2;
+  --bg:#f7f8fc; --card:#fff; --brand:#5b5cf0; --ok:#12a150; --warn:#c27c00;
+  --radius:18px; --shadow:0 1px 2px rgba(16,20,48,.06),0 12px 40px rgba(16,20,48,.08);
+  --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{--text:#eef0fb;--muted:#a7adc9;--faint:#7c82a1;--line:#252a49;--bg:#0b0e1d;--card:#131833;--shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.35)}}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 var(--font);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{width:min(1140px,92vw);margin:0 auto}
+h1,h2,h3{letter-spacing:-.02em;margin:0} h2{font-size:clamp(28px,3.6vw,40px);line-height:1.15}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+.lead{color:var(--muted);font-size:18px;max-width:680px}
+section{padding:96px 0} .center{text-align:center} .center .lead{margin-left:auto;margin-right:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:99px;background:rgba(91,92,240,.12);color:var(--brand)}
+.pill.ok{background:rgba(18,161,80,.12);color:var(--ok)} .pill.warn{background:rgba(194,124,0,.14);color:var(--warn)}
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:0 0 110px}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;background:radial-gradient(600px 400px at 18% 20%,rgba(91,92,240,.55),transparent 70%),radial-gradient(520px 380px at 85% 10%,rgba(34,195,230,.35),transparent 70%),radial-gradient(700px 500px at 60% 90%,rgba(91,92,240,.25),transparent 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 85%);mask-image:linear-gradient(to bottom,#000,transparent 85%);pointer-events:none}
+nav{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:#fff} .logo img{width:32px}
+.nav-links{display:flex;gap:26px;font-size:14.5px} .nav-links a{color:#c9cdf0}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:56px}
+.hero h1{font-size:clamp(38px,5.6vw,64px);line-height:1.03;font-weight:800}
+.grad{background:linear-gradient(90deg,#8f90ff,#3fc6f0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:#c3c7e6;margin:22px 0 32px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font:700 16px var(--font);padding:15px 24px;border-radius:14px;text-decoration:none!important}
+.btn.primary{background:linear-gradient(135deg,#6667ff,#3fb5ff);color:#fff;box-shadow:0 10px 30px rgba(91,92,240,.45)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btn.small{padding:10px 16px;font-size:14.5px;border-radius:11px}
+.btn.outline{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.btn[aria-disabled=true]{opacity:.5;pointer-events:none}
+.hero .meta{color:#9aa0c8;font-size:13.5px;margin-top:14px;min-height:20px}
+.trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:#aeb3d9;font-size:14px}
+.trust span::before{content:"✓ ";color:#5fe0ff;font-weight:800}
+.mock{background:rgba(19,24,51,.75);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:16px;box-shadow:0 30px 80px rgba(0,0,0,.45);backdrop-filter:blur(8px)}
+.mock-top{display:flex;justify-content:space-between;align-items:center;color:#c9cdf0;font-size:13px;margin-bottom:10px}
+.live{background:#e11d48;color:#fff;font-weight:800;font-size:11px;letter-spacing:.08em;padding:3px 8px;border-radius:6px}
+.scene{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#1c2246,#0f1430)}
+.scene svg{position:absolute;inset:0;width:100%;height:100%}
+.scan{position:absolute;left:0;right:0;height:60px;background:linear-gradient(180deg,transparent,rgba(95,224,255,.18),transparent);animation:scan 3.2s linear infinite}
+@keyframes scan{from{top:-60px}to{top:100%}}
+.rules{margin-top:12px;display:grid;gap:9px}
+.rule{font-size:12.5px;color:#c9cdf0} .rule .row{display:flex;justify-content:space-between}
+.bar{height:6px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:5px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6667ff,#3fb5ff);animation:fill 4s ease-in-out infinite}
+.bar i.b2{animation-delay:-1.3s;background:linear-gradient(90deg,#22c55e,#5fe0ff)} .bar i.b3{animation-delay:-2.4s}
+@keyframes fill{0%{width:8%}60%{width:96%}100%{width:8%}}
+@media (prefers-reduced-motion:reduce){.scan,.bar i{animation:none}.bar i{width:60%}}
+.review{margin-top:12px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border-radius:12px;padding:10px 12px;color:#e7e9ff;font-size:13px}
+.review b{color:#fff} .review .btns{margin-left:auto;display:flex;gap:6px}
+.review .btns span{padding:5px 10px;border-radius:8px;font-weight:700;font-size:12px;background:rgba(255,255,255,.1)} .review .btns span.y{background:#22c55e;color:#062b14}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:44px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.card h3{font-size:18px;margin:10px 0 6px} .card p{color:var(--muted);margin:0;font-size:15px}
+.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(91,92,240,.15),rgba(34,195,230,.15));font-size:21px}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;counter-reset:s}
+.steps3 .card{position:relative;padding-top:30px}
+.steps3 .card::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:24px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,#6667ff,#3fb5ff)}
+.detect .card .top{display:flex;justify-content:space-between;align-items:center}
+.plan{font-size:12px;color:var(--faint);font-weight:700;margin-top:10px}
+.tint{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.stat{border-radius:var(--radius);padding:26px;background:linear-gradient(160deg,rgba(91,92,240,.09),rgba(34,195,230,.06));border:1px solid var(--line)}
+.stat .n{font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.stat .l{color:var(--muted);margin-top:8px;font-size:15px}
+table.res{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px}
+table.res th,table.res td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line)}
+table.res th{color:var(--faint);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
+.note{border-radius:14px;padding:18px 20px;background:rgba(194,124,0,.09);border:1px solid rgba(194,124,0,.25);font-size:15px}
+.note h3{font-size:16px;margin-bottom:6px}
+ul.clean{margin:8px 0 0;padding-left:18px;color:var(--muted)} ul.clean li{margin:6px 0}
+.dl-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.dl{position:relative;background:var(--bg);border:1.5px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:12px}
+.dl.rec{border-color:var(--brand);box-shadow:0 0 0 4px rgba(91,92,240,.12),var(--shadow)}
+.dl .badge{position:absolute;top:-12px;left:20px;background:#12a150;color:#fff}
+.dl h3{font-size:20px;display:flex;align-items:center;gap:10px} .dl .os-ic{font-size:26px}
+.dl .sub{color:var(--muted);font-size:14px;margin:0}
+.dl .actions{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.fine{font-size:12.5px;color:var(--faint)}
+.dl .btn{justify-content:center} .dl .btn.primary{box-shadow:none}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:rgba(127,127,160,.12);padding:2px 6px;border-radius:6px}
+pre{position:relative;background:#0b0e1d;color:#e6e8f5;padding:14px 16px;padding-right:70px;border-radius:12px;overflow:auto;font-size:12.5px;margin:0;white-space:pre-wrap;word-break:break-all}
+.copy{position:absolute;top:8px;right:8px;background:#262b45;color:#c9cdf0;border:0;border-radius:8px;padding:4px 10px;font-size:12px;cursor:pointer}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:44px 0 16px}
+.tabs button{background:transparent;border:1.5px solid var(--line);color:var(--muted);padding:8px 16px;border-radius:99px;font:700 14px var(--font);cursor:pointer}
+.tabs button.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+ol.howto{counter-reset:h;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+ol.howto li{counter-increment:h;display:grid;grid-template-columns:34px 1fr;gap:12px}
+ol.howto li::before{content:counter(h);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(91,92,240,.12);color:var(--brand);font-weight:800}
+ol.howto b{display:block} ol.howto span{color:var(--muted);font-size:15px}
+.hidden{display:none!important}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.plans .card h3{margin-top:0} .plans ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-top:10px}
+summary{cursor:pointer;font-weight:700} details p{color:var(--muted);margin:10px 0 0}
+footer{padding:46px 0;color:var(--faint);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media (max-width:920px){.hero-grid,.two{grid-template-columns:1fr}.cards,.steps3,.stats,.dl-grid{grid-template-columns:1fr}.plans{grid-template-columns:1fr 1fr}.nav-links{display:none}section{padding:70px 0}}
+</style>
 </head>
 <body>
+
+<header class="hero">
   <div class="wrap">
-    <header>
+    <nav>
       <div class="logo"><img src="logo.svg" alt="">Seekur</div>
-      <a href="#how" class="meta">How it works</a>
-    </header>
-
-    <section class="hero">
-      <h1>Your cameras, now paying attention.</h1>
-      <p>Seekur watches your existing store cameras for unusual activity and asks you to confirm before anyone is alerted. Runs on your own computer. Video never leaves the store.</p>
-      <div class="cta">
-        <a id="primary" class="btn" href="#">Download</a>
-        <div id="primary-meta" class="meta"></div>
-        <div id="phone-note" class="meta hidden">On a phone? Install Seekur on the store's computer first. Then open your dashboard here and choose “Add to Home Screen”.</div>
+      <div class="nav-links"><a href="#detect">What it detects</a><a href="#accuracy">How well it works</a><a href="#privacy">Privacy</a><a href="#download">Download</a></div>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <span class="pill" style="background:rgba(95,224,255,.14);color:#8eeaff">Beta · free 14-day trial</span>
+        <h1 style="margin-top:16px">Your cameras,<br><span class="grad">now paying attention.</span></h1>
+        <p class="lead">Seekur watches your existing store cameras for unusual activity — someone in the stock room, a long queue, a fall, possible concealment — and asks a person to confirm before anyone is alerted.</p>
+        <div class="cta-row">
+          <a id="hero-dl" class="btn primary" href="#download">Download</a>
+          <a class="btn ghost" href="#accuracy">See the honest numbers</a>
+        </div>
+        <div id="hero-meta" class="meta"></div>
+        <div class="trust"><span>Works with the cameras you have</span><span>Video never leaves the store</span><span>No face recognition</span></div>
       </div>
-    </section>
-
-    <div class="tabs" role="tablist">
-      <button data-os="windows">Windows</button>
-      <button data-os="ubuntu">Ubuntu Linux</button>
-      <button data-os="macos">macOS</button>
+      <div class="mock" role="img" aria-label="Illustration of the Seekur live view: a person outlined with a skeleton, rule progress bars and a review prompt">
+        <div class="mock-top"><span>Aisle 3 · What the AI sees</span><span class="live">LIVE</span></div>
+        <div class="scene">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" aria-hidden="true">
+            <rect x="250" y="30" width="130" height="190" fill="rgba(245,158,11,.10)" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 5"/>
+            <text x="258" y="48" fill="#f59e0b" font-size="11" font-family="sans-serif">Shelf A</text>
+            <rect x="130" y="40" width="82" height="185" fill="none" stroke="#6667ff" stroke-width="2"/>
+            <g stroke="#7ef0a8" stroke-width="2.5" fill="none" stroke-linecap="round">
+              <circle cx="171" cy="62" r="11"/>
+              <path d="M171 73 L171 140 M171 86 L148 116 L160 140 M171 86 L198 104 L232 96 M171 140 L156 220 M171 140 L188 220"/>
+            </g>
+            <circle cx="232" cy="96" r="5" fill="#ffd166"/><circle cx="160" cy="140" r="5" fill="#ffd166"/>
+            <rect x="130" y="28" width="30" height="14" rx="3" fill="#6667ff"/><text x="135" y="39" fill="#fff" font-size="10" font-family="sans-serif" font-weight="700">#1</text>
+          </svg>
+          <div class="scan"></div>
+        </div>
+        <div class="rules">
+          <div class="rule"><div class="row"><span>#1 movement score</span><span>Concealment (beta)</span></div><div class="bar"><i></i></div></div>
+          <div class="rule"><div class="row"><span>#1 in Shelf A</span><span>Lingering</span></div><div class="bar"><i class="b2"></i></div></div>
+          <div class="rule"><div class="row"><span>2 people in Checkout line</span><span>Queue</span></div><div class="bar"><i class="b3"></i></div></div>
+        </div>
+        <div class="review"><span>🔔</span><span><b>Check this:</b> possible concealment · Aisle 3</span><span class="btns"><span>Dismiss</span><span class="y">Confirm</span></span></div>
+      </div>
     </div>
-
-    <section class="card" id="steps-windows">
-      <ol class="steps">
-        <li><div><b>Download the installer</b><span>Click the button above to get <code>Seekur-Setup.exe</code>.</span></div></li>
-        <li><div><b>Run it</b><span>While Seekur is in beta the installer isn't signed yet, so Windows may say “Windows protected your PC”. Click <b style="display:inline">More info → Run anyway</b>. This happens once.</span></div></li>
-        <li><div><b>Click Next → Next → Finish</b><span>Seekur installs as background services that start with Windows, even before anyone logs in.</span></div></li>
-        <li><div><b>Set up in your browser</b><span>The dashboard opens automatically. Create your account, let Seekur check the computer, pick the recommended plan, and add your cameras.</span></div></li>
-      </ol>
-      <div class="note">Use IP cameras on the store network (RTSP/ONVIF). A webcam plugged into a Windows PC may not be usable from a background service; it's fine for a quick test on Ubuntu.</div>
-    </section>
-
-    <section class="card hidden" id="steps-ubuntu">
-      <ol class="steps">
-        <li><div><b>Open a terminal on the store computer</b><span>Ubuntu 22.04 or 24.04.</span></div></li>
-        <li><div><b>Run the installer</b>
-          <pre id="cmd"><button class="copy" onclick="copyCmd()">Copy</button>curl -fsSL <span id="host"></span>/install.sh | sudo bash</pre>
-          <span>It installs everything, sets Seekur to start automatically after a power cut and prints your dashboard address.</span></div></li>
-        <li><div><b>Open the dashboard address</b><span>For example <code>http://192.168.1.50:8080</code> from any computer or phone on the store network.</span></div></li>
-        <li><div><b>Set up in your browser</b><span>Create your account, let Seekur check the computer, pick the recommended plan, and add your cameras.</span></div></li>
-      </ol>
-    </section>
-
-    <section class="card hidden" id="steps-macos">
-      <ol class="steps">
-        <li><div><b>Download the .dmg</b><span>Apple Silicon Macs (M1 or newer), macOS 13+.</span></div></li>
-        <li><div><b>Open it and double-click “Install Seekur.pkg”</b><span>While Seekur is in beta it isn't signed by Apple yet. If macOS says it can't be opened, go to System Settings → Privacy &amp; Security and click “Open Anyway”.</span></div></li>
-        <li><div><b>Set up in your browser</b><span>Seekur starts in the background and your browser opens the setup page. Same steps as every other system.</span></div></li>
-      </ol>
-      <div class="note">On Mac, Seekur works with IP cameras on the store network. macOS doesn't let background services use a built-in webcam.</div>
-    </section>
-
-    <section class="grid" id="how">
-      <div class="card"><h3>1 · It watches</h3><p>Open-source AI finds people and body posture in your existing cameras, and checks them against rules you control: lingering, restricted areas, after-hours movement, falls, long queues, possible concealment.</p></div>
-      <div class="card"><h3>2 · You confirm</h3><p>Anything unusual lands in your Review inbox with a short clip. Nothing is escalated until a person looks and confirms. No automatic accusations, ever.</p></div>
-      <div class="card"><h3>3 · The right people act</h3><p>Confirmed incidents notify the people you choose on their phones. Every confirm or dismiss improves accuracy, which you can see for your own store.</p></div>
-    </section>
-
-    <section class="card">
-      <h2 style="margin-top:0">What you need</h2>
-      <div class="req">
-        <div><b>Computer</b>A PC that stays on. Seekur checks it during setup and recommends a plan it can actually run. An NVIDIA RTX 3060 or better unlocks every feature on ~16 cameras.</div>
-        <div><b>Cameras</b>Any IP camera with RTSP (almost all), ideally ONVIF. 720p for queues; 1080p for theft and staff features.</div>
-        <div><b>Privacy</b>No face recognition. Video stays on the store computer; only alerts and counts leave it. You set how long recordings are kept.</div>
-      </div>
-    </section>
-
-    <footer>Seekur beta · Free plan forever for live view and recording · Paid plans per analysed camera · <a href="THIRD_PARTY_NOTICES.md">Credits &amp; licences</a></footer>
   </div>
+</header>
+
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">How it works</div>
+    <h2 style="margin-top:10px">It watches. You decide. The right people act.</h2>
+    <div class="steps3" style="text-align:left">
+      <div class="card"><h3>It watches</h3><p>Open-source AI finds people, bags and body posture in each camera image, then checks them against rules you control: zones you draw, timers, opening hours.</p></div>
+      <div class="card"><h3>You confirm</h3><p>Anything unusual lands in your Review inbox with a snapshot and a short clip. Nothing is escalated until a person looks — no automatic accusations, ever.</p></div>
+      <div class="card"><h3>The right people act</h3><p>Confirmed incidents notify the people you choose, on their phones. Every confirm or dismiss feeds your store's own accuracy report.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="detect" class="detect" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">What it detects</div>
+    <h2 style="margin-top:10px">Six behaviours, each clearly explained.</h2>
+    <p class="lead" style="margin-top:12px">Every rule shows its progress live, so you always know why something did — or didn't — raise an alert.</p>
+    <div class="cards">
+      <div class="card"><div class="top"><div class="icon">🚪</div><span class="pill ok">Proven</span></div><h3>Restricted areas</h3><p>Someone stays in a staff-only zone for a few seconds.</p><div class="plan">Lite</div></div>
+      <div class="card"><div class="top"><div class="icon">🌙</div><span class="pill ok">Proven</span></div><h3>After closing time</h3><p>Anyone seen on camera while the store is closed.</p><div class="plan">Lite</div></div>
+      <div class="card"><div class="top"><div class="icon">🧾</div><span class="pill ok">Proven</span></div><h3>Queues too long</h3><p>More people than your limit wait at the checkout for too long.</p><div class="plan">Lite</div></div>
+      <div class="card"><div class="top"><div class="icon">⏱️</div><span class="pill ok">Proven</span></div><h3>Lingering</h3><p>Someone stays unusually long in one spot.</p><div class="plan">Lite</div></div>
+      <div class="card"><div class="top"><div class="icon">🆘</div><span class="pill">Verified on test images</span></div><h3>Person down</h3><p>Someone appears to have fallen and stays on the floor.</p><div class="plan">Ops</div></div>
+      <div class="card"><div class="top"><div class="icon">🛍️</div><span class="pill warn">Beta · measured</span></div><h3>Possible concealment</h3><p>Body movement that looks like hiding an item in clothing or a bag. Always a “check this”, never an accusation.</p><div class="plan">Protect</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="accuracy" class="tint">
+  <div class="wrap">
+    <div class="eyebrow">How well does it work?</div>
+    <h2 style="margin-top:10px">Honest numbers, measured the hard way.</h2>
+    <p class="lead" style="margin-top:12px">Spotting concealment is the hardest thing you can ask of a camera, so we measured it on real footage instead of making promises. Here's exactly what we found, and what it means for you.</p>
+    <div class="stats">
+      <div class="stat"><div class="n grad">93%</div><div class="l">of concealment alerts were real thefts, so staff rarely waste time on false alarms.</div></div>
+      <div class="stat"><div class="n grad">3.5%</div><div class="l">of normal shopping clips produced an alert, with people browsing, holding products and using phones.</div></div>
+      <div class="stat"><div class="n grad">46%</div><div class="l">of staged thefts were flagged on the default setting: about half, and every alert goes to a person first.</div></div>
+    </div>
+    <table class="res" aria-label="Measured concealment results">
+      <tr><th>Sensitivity</th><th>Staged thefts flagged</th><th>Normal clips with an alert</th><th>Alerts that were real</th></tr>
+      <tr><td><b>Medium</b> (default)</td><td>42 of 92 · 46%</td><td>3 of 85 · 3.5%</td><td>93%</td></tr>
+      <tr><td><b>High</b></td><td>51 of 92 · 55%</td><td>8 of 85 · 9%</td><td>86%</td></tr>
+    </table>
+    <div class="two">
+      <div>
+        <h3>How we measured it</h3>
+        <ul class="clean">
+          <li><b>177 real video clips</b> of staged shoplifting and normal shopping, from a public research dataset (CC BY 4.0).</li>
+          <li><b>Every clip was judged by a model that had never seen it</b> (5-fold cross-validation), so the numbers aren't flattered by memorising.</li>
+          <li><b>Measured through the exact code your store runs</b>, safety checks included, not a lab-only shortcut.</li>
+          <li><b>A built-in safety check:</b> the model may only alert when a hand has just moved to the body or into a bag, so a shopper standing with hands in pockets is never flagged.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>What this means for you</h3>
+        <ul class="clean" style="color:var(--text)">
+          <li>Think of concealment alerts as a <b>second pair of eyes</b>, not a guarantee: they catch about half of clear cases, with very few false alarms.</li>
+          <li>The footage was recorded in a lab set up like a shop. <b>Real stores are harder</b>: crowds, shelves in the way, ceiling cameras.</li>
+          <li>Seekur includes <b>Test mode and a clip recorder</b>, so you can measure it on your own cameras before relying on it.</li>
+          <li>The other behaviours (restricted areas, after-hours, queues, lingering) are simpler and very reliable.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <div class="eyebrow">Privacy by design</div>
+    <h2 style="margin-top:10px">Smart, without being creepy.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">🏠</div><h3>Runs in your store</h3><p>All video analysis happens on your own computer. Only alerts, counts and your subscription status leave it.</p></div>
+      <div class="card"><div class="icon">🙈</div><h3>No faces, no identities</h3><p>Seekur reads posture and position, never faces. It doesn't know who anyone is, and doesn't try.</p></div>
+      <div class="card"><div class="icon">🧑‍⚖️</div><h3>A person decides</h3><p>Every alert is a “check this” for your staff. Confirm or dismiss with one tap; nothing escalates on its own.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="tint">
+  <div class="wrap">
+    <div class="dl-head">
+      <div>
+        <div class="eyebrow">Download</div>
+        <h2 style="margin-top:10px">Install on the store computer.</h2>
+        <p class="lead" style="margin-top:12px">We've highlighted the right one for this device, but every version is here, so you can download for another computer too.</p>
+      </div>
+      <div id="release-info" class="pill">Checking latest version…</div>
+    </div>
+    <div class="dl-grid">
+      <div class="dl" data-os="windows">
+        <h3><span class="os-ic">🪟</span>Windows</h3>
+        <p class="sub">Windows 10 or 11 · 64-bit. Installs as background services that start with the PC.</p>
+        <div class="actions">
+          <a class="btn primary dl-btn" data-asset="Seekur-Setup.exe" href="#">Download .exe</a>
+          <div class="fine" data-size="Seekur-Setup.exe"></div>
+        </div>
+      </div>
+      <div class="dl" data-os="macos">
+        <h3><span class="os-ic">🍎</span>macOS</h3>
+        <p class="sub">Apple Silicon (M1 or newer) · macOS 13+. Works with network cameras.</p>
+        <div class="actions">
+          <a class="btn primary dl-btn" data-asset="Seekur.dmg" href="#">Download .dmg</a>
+          <div class="fine" data-size="Seekur.dmg"></div>
+        </div>
+      </div>
+      <div class="dl" data-os="ubuntu">
+        <h3><span class="os-ic">🐧</span>Ubuntu</h3>
+        <p class="sub">Ubuntu 22.04 / 24.04. One command, or download the package.</p>
+        <div class="actions">
+          <pre id="cmd"><button class="copy" onclick="copyCmd(event)">Copy</button>curl -fsSL <span class="host"></span>/install.sh | sudo bash</pre>
+          <a class="btn outline small dl-btn" data-asset="seekur-linux.tar.gz" href="#">Download .tar.gz</a>
+        </div>
+      </div>
+    </div>
+    <div class="tabs" role="tablist">
+      <button data-os="windows">Install on Windows</button>
+      <button data-os="macos">Install on macOS</button>
+      <button data-os="ubuntu">Install on Ubuntu</button>
+    </div>
+    <div class="card" id="steps-windows">
+      <ol class="howto">
+        <li><div><b>Run Seekur-Setup.exe</b><span>While Seekur is in beta the installer isn't code-signed yet, so Windows may say “Windows protected your PC”. Click <b style="display:inline">More info → Run anyway</b>, once.</span></div></li>
+        <li><div><b>Next → Next → Finish</b><span>Seekur runs in the background and starts with Windows, even before anyone logs in.</span></div></li>
+        <li><div><b>Set up in your browser</b><span>The setup page opens by itself: create your account, let Seekur check the computer, pick the recommended plan, add your cameras.</span></div></li>
+      </ol>
+    </div>
+    <div class="card hidden" id="steps-macos">
+      <ol class="howto">
+        <li><div><b>Open Seekur.dmg → double-click “Install Seekur.pkg”</b><span>Beta builds aren't signed by Apple yet. If macOS says it can't be opened: System Settings → Privacy &amp; Security → <b style="display:inline">Open Anyway</b>.</span></div></li>
+        <li><div><b>Set up in your browser</b><span>Seekur starts in the background and opens the setup page. Use network (IP) cameras; macOS doesn't let background services use the built-in webcam.</span></div></li>
+      </ol>
+    </div>
+    <div class="card hidden" id="steps-ubuntu">
+      <ol class="howto">
+        <li><div><b>Run the command above in a terminal</b><span>It installs everything, starts Seekur automatically after power cuts and prints your dashboard address.</span></div></li>
+        <li><div><b>Open the dashboard address</b><span>For example <code>http://192.168.1.50:8080</code>, from any computer or phone on the store network.</span></div></li>
+      </ol>
+    </div>
+    <p class="fine" style="margin-top:18px">You'll need a PC that stays on (Seekur checks it and recommends a plan it can actually run; an NVIDIA RTX 3060 or better unlocks every feature on about 16 cameras) and IP cameras with RTSP, which almost all have. Phones and tablets need nothing: open the dashboard and choose “Add to Home Screen”.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Plans</div>
+    <h2 style="margin-top:10px">Pay per camera. Start free.</h2>
+    <p class="lead" style="margin-top:12px">Every plan keeps live view and recording on all cameras. Paid plans are priced per analysed camera, monthly or yearly, and every new store gets a 14-day trial of everything.</p>
+    <div class="plans">
+      <div class="card"><h3>Free</h3><ul><li>Live view</li><li>Recording</li><li>Camera health alerts</li></ul></div>
+      <div class="card"><h3>Lite</h3><ul><li>Restricted areas</li><li>After-hours</li><li>Queues &amp; lingering</li><li>Multiple stores</li></ul></div>
+      <div class="card"><h3>Ops</h3><ul><li>Everything in Lite</li><li>Person down</li><li>Staff monitoring (soon)</li></ul></div>
+      <div class="card"><h3>Protect</h3><ul><li>Everything in Ops</li><li>Possible concealment (beta)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap" style="max-width:820px">
+    <div class="eyebrow">Questions</div>
+    <h2 style="margin-top:10px">Good to know</h2>
+    <details><summary>Will it catch every shoplifter?</summary><p>No camera system does. On real staged footage Seekur flagged about half of concealments, and 93% of its alerts were real. It's a second pair of eyes that rarely wastes your staff's time, and you can measure it on your own cameras with Test mode.</p></details>
+    <details><summary>Does video go to the cloud?</summary><p>No. Analysis runs on the store's computer and video stays there. Only alerts, counts and your subscription status are sent.</p></details>
+    <details><summary>What if the internet goes down?</summary><p>Seekur keeps detecting and alerting on the store network, and works for 30 days without reaching the licence server. Everything syncs when the connection is back.</p></details>
+    <details><summary>Do I need new cameras?</summary><p>Usually not. Any IP camera with RTSP works, and most support ONVIF so Seekur can find them automatically. 1080p is recommended for concealment.</p></details>
+    <details><summary>Can I download for a different computer?</summary><p>Yes. Every version is in the Download section, whatever device you're browsing on.</p></details>
+    <details><summary>Can staff use it on their phones?</summary><p>Yes. Open the dashboard on a phone and choose “Add to Home Screen”: it works like an app, with notifications.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Seekur <span id="ver"></span> · No face recognition · Video stays in your store</div>
+    <div><a href="THIRD_PARTY_NOTICES.md">Credits &amp; licences</a> · Concealment model trained on the Shoplifting Dataset (2022), MNNIT Allahabad, CC BY 4.0</div>
+  </div>
+</footer>
 
 <script>
-  // Where installer files live. In production this points at the latest GitHub Release.
-  const RELEASES = "https://github.com/HassanAli66/seekur-downloads/releases/latest/download";
-  const DOWNLOADS = {
-    windows: { label: "Download for Windows", href: RELEASES + "/Seekur-Setup.exe", meta: "Windows 10/11 · 64-bit · beta" },
-    ubuntu:  { label: "Install on Ubuntu", href: "#steps-ubuntu", meta: "Ubuntu 22.04 / 24.04 · one command" },
-    macos:   { label: "Download for macOS", href: RELEASES + "/Seekur.dmg", meta: "Apple Silicon (M1 or newer) · macOS 13+ · beta" },
-  };
+const REPO = "HassanAli66/seekur-downloads";
+const NAMES = { windows: "Windows", macos: "macOS", ubuntu: "Ubuntu" };
+function detectOS() {
+  const d = navigator.userAgentData, ua = navigator.userAgent, p = (d && d.platform) || navigator.platform || "";
+  if (/Android|iPhone|iPad|iPod/i.test(ua) || (d && d.mobile)) return "phone";
+  if (/Win/i.test(p) || /Windows/i.test(ua)) return "windows";
+  if (/Mac/i.test(p) || /Mac OS X/i.test(ua)) return "macos";
+  if (/Linux|X11/i.test(p) || /Linux/i.test(ua)) return "ubuntu";
+  return "unknown";
+}
+function showSteps(os) {
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.os === os));
+  ["windows", "macos", "ubuntu"].forEach(k => document.getElementById("steps-" + k).classList.toggle("hidden", k !== os));
+}
+function copyCmd(e) {
+  e.stopPropagation();
+  navigator.clipboard.writeText(document.getElementById("cmd").innerText.replace(/^Copy(ed)?/, "").trim());
+  e.target.textContent = "Copied"; setTimeout(() => e.target.textContent = "Copy", 1500);
+}
+const mb = n => (n / 1048576).toFixed(0) + " MB";
+const os = detectOS();
+const base = location.origin.startsWith("http") ? location.origin + location.pathname.replace(/index\.html$/, "").replace(/\/$/, "") : "https://hassanali66.github.io/seekur-downloads";
+document.querySelectorAll(".host").forEach(el => el.textContent = base);
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => showSteps(b.dataset.os)));
+showSteps(NAMES[os] ? os : "windows");
 
-  function detectOS() {
-    const uaData = navigator.userAgentData;
-    const platform = (uaData && uaData.platform) || navigator.platform || "";
-    const ua = navigator.userAgent;
-    if (/Android|iPhone|iPad|iPod/i.test(ua) || (uaData && uaData.mobile)) return "phone";
-    if (/Win/i.test(platform) || /Windows/i.test(ua)) return "windows";
-    if (/Mac/i.test(platform) || /Mac OS X/i.test(ua)) return "macos";
-    if (/Linux|X11/i.test(platform) || /Linux/i.test(ua)) return "ubuntu";
-    return "unknown";
-  }
+// Highlight the download for this device; every other version stays available below it.
+if (NAMES[os]) {
+  const card = document.querySelector(`.dl[data-os="${os}"]`);
+  card.classList.add("rec");
+  card.insertAdjacentHTML("afterbegin", '<span class="pill ok badge">Recommended for this device</span>');
+}
+const hero = document.getElementById("hero-dl"), meta = document.getElementById("hero-meta");
+if (os === "phone") { hero.textContent = "Install on the store computer ↓"; meta.textContent = "On a phone? Install Seekur on the store's computer, then open its dashboard here and choose “Add to Home Screen”."; }
+else if (NAMES[os]) { hero.textContent = `Download for ${NAMES[os]}`; }
 
-  function show(os) {
-    document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.os === os));
-    ["windows", "ubuntu", "macos"].forEach(k => document.getElementById("steps-" + k).classList.toggle("hidden", k !== os));
+// Links come from the newest published release (betas included), straight from GitHub.
+fetch(`https://api.github.com/repos/${REPO}/releases?per_page=1`).then(r => r.ok ? r.json() : []).then(list => {
+  const rel = list[0], info = document.getElementById("release-info");
+  if (!rel) {
+    info.textContent = "First release coming soon";
+    document.querySelectorAll(".dl-btn").forEach(b => { b.setAttribute("aria-disabled", "true"); b.textContent = "Coming soon"; });
+    return;
   }
-
-  function copyCmd() {
-    navigator.clipboard.writeText(document.getElementById("cmd").innerText.replace(/^Copy/, "").trim());
-  }
-
-  const os = detectOS();
-  document.getElementById("host").textContent = location.origin.startsWith("http") ? location.origin + location.pathname.replace(/index\.html$/, "").replace(/\/$/, "") : "https://hassanali66.github.io/seekur-downloads";
-  const primary = document.getElementById("primary");
-  if (os === "phone") {
-    primary.textContent = "Open my dashboard";
-    primary.href = "#how";
-    document.getElementById("phone-note").classList.remove("hidden");
-    show("windows");
-  } else if (os === "unknown") {
-    primary.textContent = "Choose your system below";
-    primary.href = "#steps-windows";
-    show("windows");
-  } else {
-    const d = DOWNLOADS[os];
-    primary.textContent = d.label;
-    primary.href = d.href;
-    document.getElementById("primary-meta").textContent = d.meta;
-    show(os);
-  }
-  document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => show(b.dataset.os)));
+  const v = rel.tag_name.replace(/^v/, "");
+  info.textContent = `Version ${v}${rel.prerelease ? " · beta" : ""}`;
+  document.getElementById("ver").textContent = v;
+  const assets = Object.fromEntries(rel.assets.map(a => [a.name, a]));
+  document.querySelectorAll(".dl-btn").forEach(b => {
+    const a = assets[b.dataset.asset];
+    if (a) b.href = a.browser_download_url; else { b.setAttribute("aria-disabled", "true"); b.textContent = "Not in this release"; }
+  });
+  document.querySelectorAll("[data-size]").forEach(el => { const a = assets[el.dataset.size]; if (a) el.textContent = `${mb(a.size)} · version ${v}`; });
+  if (os === "windows" || os === "macos") { const a = assets[os === "windows" ? "Seekur-Setup.exe" : "Seekur.dmg"]; if (a) hero.href = a.browser_download_url; }
+  if (NAMES[os]) meta.textContent = `${NAMES[os]} · version ${v}${rel.prerelease ? " beta" : ""} · other systems in Download`;
+}).catch(() => { document.getElementById("release-info").textContent = "See Releases on GitHub"; });
 </script>
 </body>
 </html>
