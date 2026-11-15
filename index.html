@@ -173,7 +173,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="steps3" style="text-align:left">
       <div class="card"><h3>It watches</h3><p>Open-source AI finds people, bags and body posture in each camera image, then checks them against rules you control: zones you draw, timers, opening hours.</p></div>
       <div class="card"><h3>You confirm</h3><p>Anything unusual lands in your Review inbox with a snapshot and a short clip. Nothing is escalated until a person looks — no automatic accusations, ever.</p></div>
-      <div class="card"><h3>The right people act</h3><p>Confirmed incidents notify the people you choose, on their phones. Every confirm or dismiss feeds your store's own accuracy report.</p></div>
+      <div class="card"><h3>The right people act</h3><p>Confirmed incidents are sent to your team's Telegram chat and shown in the dashboard. Every confirm or dismiss feeds your store's own accuracy report.</p></div>
     </div>
   </div>
 </section>
@@ -254,7 +254,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="eyebrow">Privacy by design</div>
     <h2 style="margin-top:10px">Smart, without being creepy.</h2>
     <div class="cards">
-      <div class="card"><div class="icon">🏠</div><h3>Runs in your store</h3><p>All video analysis happens on your own computer. Only alerts, counts and your subscription status leave it.</p></div>
+      <div class="card"><div class="icon">🏠</div><h3>Runs in your store</h3><p>All video analysis happens on your own computer. Only your subscription status and a daily status check leave it, plus alert snapshots if you connect Telegram.</p></div>
       <div class="card"><div class="icon">🙈</div><h3>No faces, no identities</h3><p>Seekur reads posture and position, never faces. It doesn't know who anyone is, and doesn't try.</p></div>
       <div class="card"><div class="icon">🧑‍⚖️</div><h3>A person decides</h3><p>Every alert is a “check this” for your staff. Confirm or dismiss with one tap; nothing escalates on its own.</p></div>
     </div>
@@ -329,9 +329,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="wrap">
     <div class="eyebrow">Plans</div>
     <h2 style="margin-top:10px">Pay per camera. Start free.</h2>
-    <p class="lead" style="margin-top:12px">Every plan keeps live view and recording on all cameras. Paid plans are priced per analysed camera, monthly or yearly, and every new store gets a 14-day trial of everything.</p>
+    <p class="lead" style="margin-top:12px">Every plan includes live view of all cameras. Paid plans are priced per analysed camera, monthly or yearly, and every new account gets a 14-day trial of everything.</p>
     <div class="plans">
-      <div class="card"><h3>Free</h3><ul><li>Live view</li><li>Recording</li><li>Camera health alerts</li></ul></div>
+      <div class="card"><h3>Free</h3><ul><li>Live view of every camera</li><li>Camera online / offline status</li></ul></div>
       <div class="card"><h3>Lite</h3><ul><li>Restricted areas</li><li>After-hours</li><li>Queues &amp; lingering</li><li>Multiple stores</li></ul></div>
       <div class="card"><h3>Ops</h3><ul><li>Everything in Lite</li><li>Person down</li><li>Staff monitoring (soon)</li></ul></div>
       <div class="card"><h3>Protect</h3><ul><li>Everything in Ops</li><li>Possible concealment (beta)</li></ul></div>
@@ -344,17 +344,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="eyebrow">Questions</div>
     <h2 style="margin-top:10px">Good to know</h2>
     <details><summary>Will it catch every shoplifter?</summary><p>No camera system does. On real staged footage Seekur flagged about half of concealments, and 93% of its alerts were real. It's a second pair of eyes that rarely wastes your staff's time, and you can measure it on your own cameras with Test mode.</p></details>
-    <details><summary>Does video go to the cloud?</summary><p>No. Analysis runs on the store's computer and video stays there. Only alerts, counts and your subscription status are sent.</p></details>
-    <details><summary>What if the internet goes down?</summary><p>Seekur keeps detecting and alerting on the store network, and works for 30 days without reaching the licence server. Everything syncs when the connection is back.</p></details>
+    <details><summary>Does video go to the cloud?</summary><p>No. Analysis runs on the store's computer and video stays there. Only your subscription status and a daily status check are sent, plus alert snapshots to Telegram if you turn that on.</p></details>
+    <details><summary>What if the internet goes down?</summary><p>Seekur keeps detecting and alerting on the store network, and works for 30 days without reaching the licence server. Your subscription is re-checked when the connection is back.</p></details>
     <details><summary>Do I need new cameras?</summary><p>Usually not. Any IP camera with RTSP works, and most support ONVIF so Seekur can find them automatically. 1080p is recommended for concealment.</p></details>
     <details><summary>Can I download for a different computer?</summary><p>Yes. Every version is in the Download section, whatever device you're browsing on.</p></details>
-    <details><summary>Can staff use it on their phones?</summary><p>Yes. Open the dashboard on a phone and choose “Add to Home Screen”: it works like an app, with notifications.</p></details>
+    <details><summary>Can staff use it on their phones?</summary><p>Yes, on the store's Wi-Fi: open the dashboard on a phone and choose “Add to Home Screen”. It shows pop-up alerts while it's open. To get alerts on a locked phone or away from the store, connect a Telegram chat in Settings → Notifications.</p></details>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>Seekur <span id="ver"></span> · No face recognition · Video stays in your store</div>
+    <div>Seekur <span id="ver">0.1.0-beta.1</span> · No face recognition · Video stays in your store</div>
     <div><a href="THIRD_PARTY_NOTICES.md">Credits &amp; licences</a> · Concealment model trained on the Shoplifting Dataset (2022), MNNIT Allahabad, CC BY 4.0</div>
   </div>
 </footer>
