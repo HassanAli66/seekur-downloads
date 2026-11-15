@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seekur — Download</title>
+  <meta name="description" content="Seekur turns your existing store cameras into a smart assistant that spots unusual activity and asks you to confirm before anyone is alerted.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <style>
+    :root { --bg:#f6f7fb; --surface:#fff; --border:#e4e7f0; --text:#11142a; --muted:#5d6481; --brand:#4f46e5; --soft:#eef0ff; --ok:#157f3d; --warn:#9a5b00; --warn-soft:#fff4dc; --radius:16px; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#0b0d18; --surface:#141729; --border:#262b45; --text:#eef0fb; --muted:#a5abc6; --brand:#7c74ff; --soft:#232450; --warn:#fbbf24; --warn-soft:#2d2410; } }
+    * { box-sizing:border-box } body { margin:0; font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--text); background:radial-gradient(1100px 520px at 50% -12%, var(--soft), transparent 70%), var(--bg); }
+    a { color:var(--brand) } .wrap { width:min(1080px, 92vw); margin:0 auto }
+    header { display:flex; align-items:center; justify-content:space-between; padding:22px 0 }
+    .logo { display:flex; align-items:center; gap:10px; font-weight:750; font-size:20px } .logo img { width:32px }
+    .hero { text-align:center; padding:56px 0 30px } .hero h1 { font-size:clamp(32px,5vw,52px); line-height:1.08; letter-spacing:-.025em; margin:0 } .hero p { color:var(--muted); font-size:19px; max-width:640px; margin:18px auto 0 }
+    .cta { margin:34px 0 8px; display:flex; flex-direction:column; align-items:center; gap:12px }
+    .btn { display:inline-flex; align-items:center; gap:10px; background:var(--brand); color:#fff; padding:15px 26px; border-radius:14px; font-weight:700; font-size:17px; text-decoration:none; border:0; cursor:pointer; box-shadow:0 10px 30px rgba(79,70,229,.25) }
+    .btn.alt { background:var(--surface); color:var(--text); border:1px solid var(--border); box-shadow:none; font-size:15px; padding:10px 16px }
+    .meta { color:var(--muted); font-size:13.5px } .meta code { background:var(--surface); border:1px solid var(--border); padding:1px 6px; border-radius:6px; font-size:12px }
+    .tabs { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; margin:36px 0 18px }
+    .tabs button { background:transparent; border:1px solid var(--border); color:var(--muted); padding:8px 16px; border-radius:99px; font:600 14px inherit; cursor:pointer }
+    .tabs button.on { background:var(--text); color:var(--bg); border-color:var(--text) }
+    .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
+    .steps { counter-reset:s; list-style:none; padding:0; margin:0; display:grid; gap:16px }
+    .steps li { counter-increment:s; display:grid; grid-template-columns:36px 1fr; gap:14px; align-items:start }
+    .steps li::before { content:counter(s); width:32px; height:32px; border-radius:50%; background:var(--soft); color:var(--brand); display:grid; place-items:center; font-weight:750 }
+    .steps b { display:block } .steps span { color:var(--muted); font-size:14.5px }
+    pre { background:#0f1222; color:#e6e8f5; padding:14px 16px; border-radius:12px; overflow:auto; font-size:13.5px; margin:8px 0 0; position:relative }
+    .copy { position:absolute; top:8px; right:8px; background:#262b45; color:#c9cde3; border:0; border-radius:8px; padding:4px 10px; font-size:12px; cursor:pointer }
+    .note { background:var(--warn-soft); color:var(--warn); border-radius:12px; padding:12px 16px; font-size:14px; margin-top:18px }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:56px 0 }
+    .grid .card h3 { margin:0 0 6px } .grid .card p { margin:0; color:var(--muted); font-size:15px }
+    .req { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px } .req div { font-size:14.5px } .req b { display:block; margin-bottom:4px }
+    footer { color:var(--muted); font-size:13px; text-align:center; padding:40px 0 }
+    .hidden { display:none }
+    @media (max-width:820px){ .grid,.req{ grid-template-columns:1fr } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><img src="logo.svg" alt="">Seekur</div>
+      <a href="#how" class="meta">How it works</a>
+    </header>
+
+    <section class="hero">
+      <h1>Your cameras, now paying attention.</h1>
+      <p>Seekur watches your existing store cameras for unusual activity and asks you to confirm before anyone is alerted. Runs on your own computer. Video never leaves the store.</p>
+      <div class="cta">
+        <a id="primary" class="btn" href="#">Download</a>
+        <div id="primary-meta" class="meta"></div>
+        <div id="phone-note" class="meta hidden">On a phone? Install Seekur on the store's computer first. Then open your dashboard here and choose “Add to Home Screen”.</div>
+      </div>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button data-os="windows">Windows</button>
+      <button data-os="ubuntu">Ubuntu Linux</button>
+      <button data-os="macos">macOS</button>
+    </div>
+
+    <section class="card" id="steps-windows">
+      <ol class="steps">
+        <li><div><b>Download the installer</b><span>Click the button above to get <code>Seekur-Setup.exe</code>.</span></div></li>
+        <li><div><b>Run it</b><span>While Seekur is in beta the installer isn't signed yet, so Windows may say “Windows protected your PC”. Click <b style="display:inline">More info → Run anyway</b>. This happens once.</span></div></li>
+        <li><div><b>Click Next → Next → Finish</b><span>Seekur installs as background services that start with Windows, even before anyone logs in.</span></div></li>
+        <li><div><b>Set up in your browser</b><span>The dashboard opens automatically. Create your account, let Seekur check the computer, pick the recommended plan, and add your cameras.</span></div></li>
+      </ol>
+      <div class="note">Use IP cameras on the store network (RTSP/ONVIF). A webcam plugged into a Windows PC may not be usable from a background service; it's fine for a quick test on Ubuntu.</div>
+    </section>
+
+    <section class="card hidden" id="steps-ubuntu">
+      <ol class="steps">
+        <li><div><b>Open a terminal on the store computer</b><span>Ubuntu 22.04 or 24.04.</span></div></li>
+        <li><div><b>Run the installer</b>
+          <pre id="cmd"><button class="copy" onclick="copyCmd()">Copy</button>curl -fsSL <span id="host"></span>/install.sh | sudo bash</pre>
+          <span>It installs everything, sets Seekur to start automatically after a power cut and prints your dashboard address.</span></div></li>
+        <li><div><b>Open the dashboard address</b><span>For example <code>http://192.168.1.50:8080</code> from any computer or phone on the store network.</span></div></li>
+        <li><div><b>Set up in your browser</b><span>Create your account, let Seekur check the computer, pick the recommended plan, and add your cameras.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="card hidden" id="steps-macos">
+      <ol class="steps">
+        <li><div><b>Download the .dmg</b><span>Apple Silicon Macs (M1 or newer), macOS 13+.</span></div></li>
+        <li><div><b>Open it and double-click “Install Seekur.pkg”</b><span>While Seekur is in beta it isn't signed by Apple yet. If macOS says it can't be opened, go to System Settings → Privacy &amp; Security and click “Open Anyway”.</span></div></li>
+        <li><div><b>Set up in your browser</b><span>Seekur starts in the background and your browser opens the setup page. Same steps as every other system.</span></div></li>
+      </ol>
+      <div class="note">On Mac, Seekur works with IP cameras on the store network. macOS doesn't let background services use a built-in webcam.</div>
+    </section>
+
+    <section class="grid" id="how">
+      <div class="card"><h3>1 · It watches</h3><p>Open-source AI finds people and body posture in your existing cameras, and checks them against rules you control: lingering, restricted areas, after-hours movement, falls, long queues, possible concealment.</p></div>
+      <div class="card"><h3>2 · You confirm</h3><p>Anything unusual lands in your Review inbox with a short clip. Nothing is escalated until a person looks and confirms. No automatic accusations, ever.</p></div>
+      <div class="card"><h3>3 · The right people act</h3><p>Confirmed incidents notify the people you choose on their phones. Every confirm or dismiss improves accuracy, which you can see for your own store.</p></div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0">What you need</h2>
+      <div class="req">
+        <div><b>Computer</b>A PC that stays on. Seekur checks it during setup and recommends a plan it can actually run. An NVIDIA RTX 3060 or better unlocks every feature on ~16 cameras.</div>
+        <div><b>Cameras</b>Any IP camera with RTSP (almost all), ideally ONVIF. 720p for queues; 1080p for theft and staff features.</div>
+        <div><b>Privacy</b>No face recognition. Video stays on the store computer; only alerts and counts leave it. You set how long recordings are kept.</div>
+      </div>
+    </section>
+
+    <footer>Seekur beta · Free plan forever for live view and recording · Paid plans per analysed camera · <a href="THIRD_PARTY_NOTICES.md">Credits &amp; licences</a></footer>
+  </div>
+
+<script>
+  // Where installer files live. In production this points at the latest GitHub Release.
+  const RELEASES = "https://github.com/HassanAli66/seekur-downloads/releases/latest/download";
+  const DOWNLOADS = {
+    windows: { label: "Download for Windows", href: RELEASES + "/Seekur-Setup.exe", meta: "Windows 10/11 · 64-bit · beta" },
+    ubuntu:  { label: "Install on Ubuntu", href: "#steps-ubuntu", meta: "Ubuntu 22.04 / 24.04 · one command" },
+    macos:   { label: "Download for macOS", href: RELEASES + "/Seekur.dmg", meta: "Apple Silicon (M1 or newer) · macOS 13+ · beta" },
+  };
+
+  function detectOS() {
+    const uaData = navigator.userAgentData;
+    const platform = (uaData && uaData.platform) || navigator.platform || "";
+    const ua = navigator.userAgent;
+    if (/Android|iPhone|iPad|iPod/i.test(ua) || (uaData && uaData.mobile)) return "phone";
+    if (/Win/i.test(platform) || /Windows/i.test(ua)) return "windows";
+    if (/Mac/i.test(platform) || /Mac OS X/i.test(ua)) return "macos";
+    if (/Linux|X11/i.test(platform) || /Linux/i.test(ua)) return "ubuntu";
+    return "unknown";
+  }
+
+  function show(os) {
+    document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.os === os));
+    ["windows", "ubuntu", "macos"].forEach(k => document.getElementById("steps-" + k).classList.toggle("hidden", k !== os));
+  }
+
+  function copyCmd() {
+    navigator.clipboard.writeText(document.getElementById("cmd").innerText.replace(/^Copy/, "").trim());
+  }
+
+  const os = detectOS();
+  document.getElementById("host").textContent = location.origin.startsWith("http") ? location.origin + location.pathname.replace(/index\.html$/, "").replace(/\/$/, "") : "https://hassanali66.github.io/seekur-downloads";
+  const primary = document.getElementById("primary");
+  if (os === "phone") {
+    primary.textContent = "Open my dashboard";
+    primary.href = "#how";
+    document.getElementById("phone-note").classList.remove("hidden");
+    show("windows");
+  } else if (os === "unknown") {
+    primary.textContent = "Choose your system below";
+    primary.href = "#steps-windows";
+    show("windows");
+  } else {
+    const d = DOWNLOADS[os];
+    primary.textContent = d.label;
+    primary.href = d.href;
+    document.getElementById("primary-meta").textContent = d.meta;
+    show(os);
+  }
+  document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => show(b.dataset.os)));
+</script>
+</body>
+</html>
