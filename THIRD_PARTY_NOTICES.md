@@ -20,3 +20,10 @@ Python, FastAPI, Uvicorn, SQLAlchemy, Pydantic, httpx, cryptography, psutil, Num
 ONNX Runtime (MIT), rtmlib (Apache-2.0), React (MIT), Vite (MIT), lucide (ISC), WinSW (MIT),
 Inno Setup (Inno Setup licence), python-build-standalone (Python licence and bundled licences).
 Each is distributed under its own licence; see the respective projects.
+
+## FFmpeg (Windows installer only)
+
+The Windows installer includes `ffmpeg.exe` and `ffprobe.exe` from the LGPL builds published at
+https://github.com/BtbN/FFmpeg-Builds (FFmpeg is licensed under the GNU LGPL v2.1 or later; source:
+https://ffmpeg.org/download.html). They are run as separate programs to save camera video. The licence text is
+installed next to them (`ffmpeg\LICENSE.txt`).

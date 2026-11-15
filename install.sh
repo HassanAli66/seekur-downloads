@@ -17,7 +17,7 @@ case "$LICENSING_URL" in @*) LICENSING_URL="https://licence.seekur.example" ;; e
 case "$LICENCE_PUBLIC_KEY" in @*) LICENCE_PUBLIC_KEY="" ;; esac
 SOURCE=""
 PACKAGE="${SEEKUR_PACKAGE:-}"   # local seekur-linux.tar.gz (tests); otherwise downloaded
-RELEASE_URL="${SEEKUR_RELEASE_URL:-https://github.com/HassanAli66/seekur-downloads/releases/download/v0.1.0-beta.1}"
+RELEASE_URL="${SEEKUR_RELEASE_URL:-https://github.com/HassanAli66/seekur-downloads/releases/download/v0.1.0-beta.2}"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
