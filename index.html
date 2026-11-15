@@ -104,13 +104,19 @@ ol.howto li{counter-increment:h;display:grid;grid-template-columns:34px 1fr;gap:
 ol.howto li::before{content:counter(h);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(91,92,240,.12);color:var(--brand);font-weight:800}
 ol.howto b{display:block} ol.howto span{color:var(--muted);font-size:15px}
 .hidden{display:none!important}
+.clips{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.clip{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.clip video{width:100%;aspect-ratio:4/3;background:#000;display:block}
+.clip .cap{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.clip .cap h3{font-size:16px} .clip .cap p{margin:0;color:var(--muted);font-size:14px}
+.pill.miss{background:rgba(226,68,92,.12);color:#e2445c}
 .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .plans .card h3{margin-top:0} .plans ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-top:10px}
 summary{cursor:pointer;font-weight:700} details p{color:var(--muted);margin:10px 0 0}
 footer{padding:46px 0;color:var(--faint);font-size:14px;border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media (max-width:920px){.hero-grid,.two{grid-template-columns:1fr}.cards,.steps3,.stats,.dl-grid{grid-template-columns:1fr}.plans{grid-template-columns:1fr 1fr}.nav-links{display:none}section{padding:70px 0}}
+@media (max-width:920px){.hero-grid,.two{grid-template-columns:1fr}.cards,.steps3,.stats,.dl-grid,.clips{grid-template-columns:1fr}.plans{grid-template-columns:1fr 1fr}.nav-links{display:none}section{padding:70px 0}}
 </style>
 </head>
 <body>
@@ -203,6 +209,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <tr><td><b>Medium</b> (default)</td><td>42 of 92 · 46%</td><td>3 of 85 · 3.5%</td><td>93%</td></tr>
       <tr><td><b>High</b></td><td>51 of 92 · 55%</td><td>8 of 85 · 9%</td><td>86%</td></tr>
     </table>
+    <h3 style="margin-top:44px">See it on real footage</h3>
+    <p class="lead" style="font-size:16px;margin-top:6px">Three clips from the evaluation, each judged by a model that had never seen it: one catch, one correct “no alert”, and one miss, because we'd rather show you where it falls short. Faces are blurred; the lines show what the AI sees.</p>
+    <div class="clips">
+      <figure class="clip" style="margin:0">
+        <video src="demo/caught.mp4" poster="demo/caught.jpg" muted loop playsinline controls preload="none"></video>
+        <figcaption class="cap"><span class="pill ok" style="align-self:flex-start">Caught</span><h3>Item into a backpack</h3><p>The hand moves from the table to the bag held at the body. A “check this” alert goes to staff 4 seconds into the clip.</p></figcaption>
+      </figure>
+      <figure class="clip" style="margin:0">
+        <video src="demo/normal.mp4" poster="demo/normal.jpg" muted loop playsinline controls preload="none"></video>
+        <figcaption class="cap"><span class="pill" style="align-self:flex-start">Correctly quiet</span><h3>Browsing and handling products</h3><p>Picking items up and looking at them for the whole clip: no alert. This is what keeps false alarms rare.</p></figcaption>
+      </figure>
+      <figure class="clip" style="margin:0">
+        <video src="demo/missed.mp4" poster="demo/missed.jpg" muted loop playsinline controls preload="none"></video>
+        <figcaption class="cap"><span class="pill miss" style="align-self:flex-start">Missed</span><h3>A small, quick pocket move</h3><p>Seen side-on and close to the table, the hand barely leaves the body. Subtle moves like this are what the model still misses most.</p></figcaption>
+      </figure>
+    </div>
+    <p class="fine" style="margin-top:10px">Clips: Shoplifting Dataset (2022), CV Laboratory MNNIT Allahabad (Ansari &amp; Singh), <a href="https://doi.org/10.17632/r3yjf35hzr.1">doi:10.17632/r3yjf35hzr.1</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Edited by Seekur: faces blurred, AI overlay and labels added. Staged scenes recorded in a lab.</p>
     <div class="two">
       <div>
         <h3>How we measured it</h3>
