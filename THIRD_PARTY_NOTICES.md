@@ -47,3 +47,15 @@ installed next to them (`ffmpeg\LICENSE.txt`).
 | Tux (`assets/tux.svg`) | Free to use with credit: Larry Ewing (lewing@isc.tamu.edu), made with The GIMP | https://commons.wikimedia.org/wiki/File:Tux.svg |
 | Lucide icons (inline) | ISC | https://lucide.dev |
 | Instrument Serif, Manrope, JetBrains Mono (Google Fonts) | SIL Open Font License 1.1 | https://fonts.google.com |
+
+### Desktop app: detection and runtime
+
+| Component | Licence | Source |
+|---|---|---|
+| ONNX Runtime | MIT | https://github.com/microsoft/onnxruntime |
+| YOLOX-s model (people, bags, items) | Apache-2.0 | https://github.com/Megvii-BaseDetection/YOLOX |
+| RTMPose-s model (body points) | Apache-2.0 | https://github.com/open-mmlab/mmpose |
+| BouncyCastle (licence signature check) | MIT | https://www.bouncycastle.org/csharp/ |
+| MailKit / MimeKit (email alerts) | MIT | https://github.com/jstedfast/MailKit |
+| FFmpeg, run as a separate program (ffmpeg, ffprobe) | LGPL-2.1-or-later | https://ffmpeg.org (Windows/Linux builds: https://github.com/BtbN/FFmpeg-Builds; macOS: built from source without GPL parts). Licence text installed in `ffmpeg/LICENSE.txt` |
+| Demo video (`Demo/demo-store.mp4`) | CC BY 4.0, Shoplifting Dataset (2022), MNNIT Allahabad | https://doi.org/10.17632/r3yjf35hzr.1 |

@@ -186,6 +186,10 @@ td{font-variant-numeric:tabular-nums}
 .os h3{font-size:20px}
 .os p{color:var(--text-sub);font-size:14.5px}
 .os .btn{justify-content:center;background:transparent;border-color:var(--line-2);color:var(--text-sub)}
+.os .btn.live{background:var(--brass);border-color:var(--brass);color:#1B1606}
+.os .btn.live:hover{background:#DDBC80}
+.first-run{font-size:13.5px;color:var(--text-sub)}
+.first-run code{font-family:var(--mono);font-size:12px;word-break:break-all;background:var(--bg);padding:2px 5px;border-radius:5px}
 .dl-note{margin-top:28px;color:var(--text-sub);font-size:15px;max-width:70ch}
 
 /* FAQ */
@@ -242,19 +246,19 @@ footer a{color:var(--on-green)}
   <div class="wrap">
     <p class="eyebrow">Theft detection for stores</p>
     <h1>Spot shoplifting <em>while it happens.</em></h1>
-    <p class="lede">Seekur watches the cameras you already have. When someone hides an item, the clip is on your phone in seconds. One tap confirms it and sounds the alarm.</p>
+    <p class="lede">Seekur watches the cameras you already have. When someone hides an item, a snapshot is on your phone in seconds. One tap confirms it and sounds the alarm.</p>
     <div class="ctas">
       <a class="btn btn-brass" href="#how">See how it works</a>
       <a class="btn btn-line" href="#accuracy">See the honest numbers</a>
     </div>
-    <p class="status"><i></i>NEW DESKTOP APP IN DEVELOPMENT · DOWNLOADS OPEN AT LAUNCH</p>
+    <p class="status"><i></i>FOR WINDOWS, MACOS AND LINUX · FREE 14-DAY TRIAL</p>
 
     <figure class="shot">
-      <figcaption>PREVIEW OF THE NEW APP · SAMPLE FOOTAGE</figcaption>
+      <figcaption>THE SEEKUR APP · DEMO VIDEO FROM A RESEARCH DATASET</figcaption>
       <div class="corners" aria-hidden="true"><span class="tl"></span><span class="tr"></span></div>
       <div class="frame">
         <div class="bar" aria-hidden="true"><b></b><b></b><b></b></div>
-        <img src="assets/app-live.jpg" width="1850" height="1016" alt="The Seekur app: four store cameras, one flagged for possible concealment, and two alerts waiting with Confirm theft and Dismiss buttons.">
+        <img src="assets/app-live.jpg" width="1850" height="1016" alt="The Seekur app watching a store camera: a person putting an item into a backpack is framed and flagged as possible concealment, with an alert waiting for Confirm theft or Dismiss.">
       </div>
     </figure>
   </div>
@@ -269,7 +273,7 @@ footer a{color:var(--on-green)}
     <div class="flow">
       <div class="step"><span class="n">01 · WATCH</span><h3>Watches every camera</h3><p>Seekur runs on a computer in your store and reads each camera's video, all day.</p></div>
       <div class="step"><span class="n">02 · SPOT</span><h3>Spots hidden items</h3><p>It follows body movement and bags, and flags a hand moving an item into a bag or clothing.</p></div>
-      <div class="step"><span class="n">03 · ALERT</span><h3>Sends you the clip</h3><p>The clip lands on your phone, or on whoever you chose. Nobody is accused automatically.</p></div>
+      <div class="step"><span class="n">03 · ALERT</span><h3>Tells your phone</h3><p>A snapshot with the person framed lands on your phone. The full clip waits in the app. Nobody is accused automatically.</p></div>
       <div class="step alarm"><span class="n">04 · ACT</span><h3>You confirm, the alarm sounds</h3><p>Confirm with one tap to sound the alarm in the store. Dismiss it and nothing happens.</p></div>
     </div>
 
@@ -280,8 +284,8 @@ footer a{color:var(--on-green)}
         <p class="lede" style="margin-top:18px">Alerts arrive through apps you can install for free in a minute. Seekur walks you through each one, step by step, and you can use more than one.</p>
         <div class="channels"><span>ntfy</span><span>Telegram</span><span>Email</span><span>Pushover</span><span>Discord</span></div>
         <ul class="points">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Clip included.</b> See what happened before you decide.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Choose who gets what.</b> The owner, a manager, the person on the till.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Snapshot included.</b> See who and where before you decide.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Reach more than one person.</b> Several email addresses, a shared Telegram group or a staff Discord channel.</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Alarm on confirm.</b> The store computer's speakers, or a siren on a smart plug.</span></li>
         </ul>
       </div>
@@ -378,7 +382,7 @@ footer a{color:var(--on-green)}
       <p class="eyebrow">Gets better over time</p>
       <h2>Every store makes every store safer.</h2>
       <p class="lede">When you confirm or dismiss an alert, that clip teaches Seekur what theft looks like, and what it doesn't. It learns from every Seekur store, not just yours.</p>
-      <p><span class="soon">Coming with the new app</span></p>
+      <p><span class="soon">Built in · the first improved model ships once enough stores have confirmed alerts</span></p>
     </div>
     <div class="loop">
       <div><span class="n">01</span><h3>You decide</h3><p>Confirm or dismiss an alert as usual. That's the only thing you do.</p></div>
@@ -396,40 +400,59 @@ footer a{color:var(--on-green)}
       <h2>Smart, without being creepy.</h2>
     </div>
     <div class="grid3">
-      <div class="card"><svg aria-hidden="true"><use href="#i-home"/></svg><h3>Video stays in your store</h3><p>Live video and recordings are analysed and kept on your own computer. Only the clips of alerts you confirm or dismiss are sent to the learning library.</p></div>
+      <div class="card"><svg aria-hidden="true"><use href="#i-home"/></svg><h3>Video stays in your store</h3><p>Live video and recordings are analysed and kept on your own computer. Only the clips of alerts you confirm or dismiss go to the learning library, and alert snapshots go to the phone apps you connect.</p></div>
       <div class="card"><svg aria-hidden="true"><use href="#i-scan"/></svg><h3>No face recognition</h3><p>Seekur reads body movement and bags, never faces. It doesn't know who anyone is, and doesn't try.</p></div>
       <div class="card"><svg aria-hidden="true"><use href="#i-confirm"/></svg><h3>A person decides</h3><p>Every alert is a "please check this". Nothing is escalated and no alarm sounds until someone confirms.</p></div>
     </div>
   </div>
 </section>
 
-<section id="download" class="tint">
+<section id="download" class="tint" data-release="v0.2.0-beta.1">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Download</p>
       <h2>A native app for every store computer.</h2>
-      <p class="lede">Built for speed on Windows, macOS and Linux. The new app is in development, and downloads open here at launch.</p>
+      <p class="lede" id="dl-lede">Built for speed on Windows, macOS and Linux. The new app is in development, and downloads open here at launch.</p>
     </div>
     <div class="dl">
       <div class="os">
         <div class="logo"><img src="assets/windows.svg" alt="Windows" width="56" height="56"></div>
         <div><h3>Windows</h3><p>Windows 10 and 11, 64-bit.</p></div>
-        <span class="btn" aria-disabled="true">Coming soon</span>
+        <a class="btn dl-btn" data-asset="Seekur-Setup.exe" aria-disabled="true">Coming soon</a>
+        <p class="first-run" hidden>The installer isn't code-signed yet, so Windows may say "Windows protected your PC". Click <b>More info</b>, then <b>Run anyway</b>.</p>
       </div>
       <div class="os">
         <div class="logo"><span class="macos">macOS</span></div>
-        <div><h3>macOS</h3><p>A native app for current versions of macOS.</p></div>
-        <span class="btn" aria-disabled="true">Coming soon</span>
+        <div><h3>macOS</h3><p>Apple silicon (M1 or newer), macOS 14 or later.</p></div>
+        <a class="btn dl-btn" data-asset="Seekur.dmg" aria-disabled="true">Coming soon</a>
+        <p class="first-run" hidden>Open the file and drag Seekur to Applications. The first time, right-click Seekur and choose <b>Open</b>, because it isn't notarised by Apple yet.</p>
       </div>
       <div class="os">
         <div class="logo"><img class="tux" src="assets/tux.svg" alt="Linux" width="57" height="66"></div>
-        <div><h3>Linux</h3><p>64-bit desktop Linux, such as Ubuntu.</p></div>
-        <span class="btn" aria-disabled="true">Coming soon</span>
+        <div><h3>Linux</h3><p>64-bit desktop Linux, such as Ubuntu 22.04 or newer.</p></div>
+        <a class="btn dl-btn" data-asset="seekur-linux.tar.gz" aria-disabled="true">Coming soon</a>
+        <p class="first-run" hidden>Or install with one command in a terminal: <code>curl -fsSL https://hassanali66.github.io/seekur-downloads/install.sh | bash</code></p>
       </div>
     </div>
     <p class="dl-note">You'll need a computer in the store that stays on, and IP cameras that can stream video over the network (RTSP), which almost all can.</p>
   </div>
 </section>
+<script>
+// The release script fills in data-release when a tested build is published; until then the buttons say "Coming soon".
+(function () {
+  var sec = document.getElementById("download"), tag = sec.getAttribute("data-release");
+  if (!tag) return;
+  var base = "https://github.com/HassanAli66/seekur-downloads/releases/download/" + tag + "/";
+  sec.querySelectorAll(".dl-btn").forEach(function (a) {
+    a.href = base + a.getAttribute("data-asset");
+    a.removeAttribute("aria-disabled");
+    a.classList.add("btn-brass", "live");
+    a.textContent = "Download " + a.getAttribute("data-asset").replace("seekur-linux.tar.gz", ".tar.gz").replace("Seekur-Setup", "").replace("Seekur", "");
+  });
+  sec.querySelectorAll(".first-run").forEach(function (p) { p.hidden = false; });
+  document.getElementById("dl-lede").textContent = "Seekur " + tag.replace(/^v/, "") + " for Windows, macOS and Linux. Every new store starts with a free trial.";
+})();
+</script>
 
 <section>
   <div class="wrap">
@@ -439,11 +462,12 @@ footer a{color:var(--on-green)}
     </div>
     <div class="faq">
       <details><summary>Will it catch every shoplifter?</summary><p>No camera system does. On staged footage, today's model caught about half of concealments, and 93% of its alerts were real. Each new model has to do better before it's released.</p></details>
-      <details><summary>Does video leave my store?</summary><p>Live video and recordings stay on your computer. Only clips of alerts you confirm or dismiss go to the Seekur learning library, which you agree to when you sign up. Alerts also go to the phones you choose.</p></details>
+      <details><summary>Does video leave my store?</summary><p>Live video and recordings stay on your computer. Only clips of alerts you confirm or dismiss go to the Seekur learning library, which you agree to when you sign up. Alert snapshots go to the phone apps you connect.</p></details>
       <details><summary>Do I need new cameras?</summary><p>Usually not. Any IP camera that can stream over RTSP works, and almost all of them can.</p></details>
       <details><summary>Do I need to install a Seekur app on my phone?</summary><p>No. Alerts come through apps like ntfy or Telegram, which are free. Seekur shows you how to connect each one.</p></details>
       <details><summary>What happens when Seekur gets better?</summary><p>Your app downloads the new model in the background and switches to it without a restart. You'll see which version is running in Settings.</p></details>
-      <details><summary>When can I download it?</summary><p>The new app is in development. Downloads will appear in the Download section above when it's ready.</p></details>
+      <details><summary>Is there a free trial?</summary><p>Yes. Every new store gets 14 days with everything switched on. After that, live view and recording keep working, and theft detection needs a subscription.</p></details>
+      <details><summary>What if the computer is slow?</summary><p>Seekur checks each camera five times a second. On a slow computer it does fewer checks and tells you so on that camera, because detection is less reliable then. Fewer cameras or a faster computer fix it.</p></details>
     </div>
   </div>
 </section>
