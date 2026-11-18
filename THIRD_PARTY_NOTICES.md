@@ -27,3 +27,23 @@ The Windows installer includes `ffmpeg.exe` and `ffprobe.exe` from the LGPL buil
 https://github.com/BtbN/FFmpeg-Builds (FFmpeg is licensed under the GNU LGPL v2.1 or later; source:
 https://ffmpeg.org/download.html). They are run as separate programs to save camera video. The licence text is
 installed next to them (`ffmpeg\LICENSE.txt`).
+
+## Desktop app (apps/desktop)
+
+| Component | Licence | Source |
+|---|---|---|
+| .NET runtime | MIT | https://github.com/dotnet/runtime |
+| Avalonia UI | MIT | https://github.com/AvaloniaUI/Avalonia |
+| CommunityToolkit.Mvvm | MIT | https://github.com/CommunityToolkit/dotnet |
+| Lucide icons (converted to geometry in `Theme/Icons.axaml`) | ISC | https://lucide.dev |
+| Manrope, Instrument Serif, JetBrains Mono fonts | SIL Open Font License 1.1 | https://fonts.google.com |
+| Sample camera frames (`Assets/Sample`) | CC BY 4.0, Shoplifting Dataset (2022), MNNIT Allahabad | https://doi.org/10.17632/r3yjf35hzr.1 |
+
+## Website (apps/site)
+
+| Component | Licence / terms | Source |
+|---|---|---|
+| Windows logo (`assets/windows.svg`) | Trademark of Microsoft, shown only to mark the Windows download | https://commons.wikimedia.org/wiki/File:Windows_logo_-_2021.svg |
+| Tux (`assets/tux.svg`) | Free to use with credit: Larry Ewing (lewing@isc.tamu.edu), made with The GIMP | https://commons.wikimedia.org/wiki/File:Tux.svg |
+| Lucide icons (inline) | ISC | https://lucide.dev |
+| Instrument Serif, Manrope, JetBrains Mono (Google Fonts) | SIL Open Font License 1.1 | https://fonts.google.com |
