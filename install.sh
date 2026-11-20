@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Installs Seekur 0.2.0-beta.1 for the current user (no sudo needed).
+# Installs Seekur 0.3.0-beta.3 for the current user (no sudo needed).
 #   curl -fsSL https://hassanali66.github.io/seekur-downloads/install.sh | bash
 # or, after downloading seekur-linux.tar.gz next to this script:  bash install.sh
 set -euo pipefail
-URL="https://github.com/HassanAli66/seekur-downloads/releases/download/v0.2.0-beta.1/seekur-linux.tar.gz"
+URL="https://github.com/HassanAli66/seekur-downloads/releases/download/v0.3.0-beta.3/seekur-linux.tar.gz"
 DEST="$HOME/.local/share/seekur-app"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || pwd)"
 PKG="${SEEKUR_PACKAGE:-$HERE/seekur-linux.tar.gz}"
 T="$(mktemp -d)"; trap 'rm -rf "$T"' EXIT
-if [[ ! -f "$PKG" ]]; then echo "Downloading Seekur 0.2.0-beta.1…"; curl -fSL --progress-bar -o "$T/seekur.tar.gz" "$URL"; PKG="$T/seekur.tar.gz"; fi
+if [[ ! -f "$PKG" ]]; then echo "Downloading Seekur 0.3.0-beta.3…"; curl -fSL --progress-bar -o "$T/seekur.tar.gz" "$URL"; PKG="$T/seekur.tar.gz"; fi
 echo "Installing to $DEST"
 pkill -f "$DEST/Seekur" 2>/dev/null || true
 rm -rf "$DEST"; mkdir -p "$DEST"
