@@ -82,6 +82,35 @@ section{padding-block:104px}
 .shot .bar b{width:11px;height:11px;border-radius:50%;background:#1E4A42}
 .shot img{border-radius:8px 8px 0 0;width:100%}
 .shot figcaption{position:absolute;right:20px;top:-30px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--on-green-sub)}
+/* the illustrated app window in the hero: black feeds, no real footage */
+.mock{display:grid;grid-template-columns:54px minmax(0,1fr) 300px;min-height:430px;border-radius:8px 8px 0 0;overflow:hidden;background:#06201C;text-align:left}
+.mock .rail{background:#0A2A25;border-right:1px solid var(--green-line);padding:16px 0;display:grid;gap:14px;align-content:start;justify-items:center}
+.mock .rail i{width:22px;height:22px;border-radius:6px;background:#164038}
+.mock .rail i.on{background:var(--brass)}
+.mock .wall{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;padding:12px}
+.mock .cam{position:relative;background:#010605;border:1px solid #123A33;border-radius:8px;min-height:150px}
+.mock .cam span{position:absolute;left:10px;top:8px;font:500 10px var(--mono);letter-spacing:.1em;color:#6F9087}
+.mock .cam em{position:absolute;right:10px;top:8px;font:500 10px var(--mono);letter-spacing:.1em;color:var(--lens);font-style:normal}
+.mock .cam .box{position:absolute;left:34%;top:30%;width:26%;height:52%}
+.mock .cam .box b{position:absolute;width:16px;height:16px;border:2px solid #EEF3EF}
+.mock .cam .box b:nth-of-type(1){left:0;top:0;border-right:0;border-bottom:0}
+.mock .cam .box b:nth-of-type(2){right:0;top:0;border-left:0;border-bottom:0;border-color:var(--brass)}
+.mock .cam .box b:nth-of-type(3){left:0;bottom:0;border-right:0;border-top:0}
+.mock .cam .box b:nth-of-type(4){right:0;bottom:0;border-left:0;border-top:0}
+.mock .cam .box small{position:absolute;left:0;top:-18px;white-space:nowrap;font:500 10px var(--mono);letter-spacing:.08em;color:var(--brass)}
+.mock .cam.hot{border-color:var(--brass)}
+.mock .side{border-left:1px solid var(--green-line);padding:14px;display:grid;gap:12px;align-content:start;background:#08241F}
+.mock .side h4{font:500 10.5px var(--mono);letter-spacing:.14em;color:#6F9087;text-transform:uppercase}
+.mock .al{background:#0D3029;border:1px solid #174740;border-radius:10px;padding:10px;display:grid;gap:7px}
+.mock .al .th{aspect-ratio:16/9;background:#010605;border-radius:6px}
+.mock .al strong{font:600 13px var(--ui);color:#EEF3EF}
+.mock .al p{font-size:11.5px;color:#9DB8AF;line-height:1.4}
+.mock .al .b{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mock .al .b span{font:600 11px var(--ui);text-align:center;padding:7px 0;border-radius:7px;border:1px solid #2C5A51;color:#EEF3EF}
+.mock .al .b span:first-child{background:#D13A3F;border-color:#D13A3F;color:#fff}
+.mock .al.done{opacity:.55}
+@media (max-width:900px){.mock{grid-template-columns:minmax(0,1fr)}.mock .rail{display:none}.mock .side{border-left:0;border-top:1px solid var(--green-line)}}
+@media (max-width:520px){.mock .wall{grid-template-columns:1fr;grid-template-rows:none}}
 /* the detection corners around the hero screenshot */
 .corners{position:absolute;inset:-18px -18px 0 -18px;pointer-events:none}
 .corners span{position:absolute;width:34px;height:34px;border:3px solid var(--on-green);opacity:.85}
@@ -136,6 +165,8 @@ section{padding-block:104px}
 .stat b{font-family:var(--display);font-weight:400;font-size:clamp(56px,7vw,84px);line-height:1;letter-spacing:-.02em}
 .stat p{color:var(--text-sub);max-width:34ch}
 .table-wrap{overflow-x:auto;margin-top:40px}
+.specs td:first-child{font-weight:600}
+.spec-note{color:var(--text-sub);font-size:14.5px;margin-top:18px;max-width:80ch}
 table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
 th,td{text-align:left;padding:14px 16px 14px 0;border-bottom:1px solid var(--rule)}
 th{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-sub)}
@@ -166,6 +197,10 @@ td{font-variant-numeric:tabular-nums}
 .loop div{padding:26px 24px 8px 0;display:grid;gap:10px;align-content:start}
 .loop .n{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--brass)}
 .loop p{color:var(--on-green-sub);font-size:15px}
+.teach{margin-top:48px;padding-top:28px;border-top:1px solid var(--green-line);max-width:70ch}
+.teach h3{font-family:var(--display);font-weight:400;font-size:28px;color:var(--on-green)}
+.teach p{color:var(--on-green-sub);margin-top:10px}
+.teach b{color:var(--on-green)}
 .soon{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:rgba(210,174,109,.16);color:var(--brass)}
 
 /* Privacy */
@@ -174,6 +209,20 @@ td{font-variant-numeric:tabular-nums}
 .card{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:28px;display:grid;gap:10px;align-content:start}
 .card p{color:var(--text-sub);font-size:15px}
 .card svg{width:26px;height:26px;color:var(--accent)}
+
+
+/* Pricing */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:860px}
+@media (max-width:760px){.plans{grid-template-columns:minmax(0,1fr)}}
+.plan{background:var(--surface);border:1px solid var(--rule);border-radius:18px;padding:28px;display:grid;gap:14px;align-content:start}
+.plan.plus{border-color:var(--accent);border-width:1.5px}
+.plan .price{font-family:var(--display);font-size:56px;line-height:1}
+.plan .per{color:var(--text-sub);font-size:14px}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.plan li{display:grid;grid-template-columns:20px 1fr;gap:10px;color:var(--text-sub);font-size:15px}
+.plan li svg{width:20px;height:20px;color:var(--accent);margin-top:2px}
+.plan li b{color:var(--text)}
+.trial-note{margin-top:22px;color:var(--text-sub);font-size:15px;max-width:70ch}
 
 /* Download */
 .dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
@@ -237,6 +286,8 @@ footer a{color:var(--on-green)}
       <a href="#how">How it works</a>
       <a href="#accuracy">Accuracy</a>
       <a href="#privacy">Privacy</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#specs">Specs</a>
       <a class="btn btn-brass" href="#download">Download</a>
     </nav>
   </div>
@@ -254,11 +305,24 @@ footer a{color:var(--on-green)}
     <p class="status"><i></i>FOR WINDOWS, MACOS AND LINUX · FREE 14-DAY TRIAL</p>
 
     <figure class="shot">
-      <figcaption>THE SEEKUR APP · DEMO VIDEO FROM A RESEARCH DATASET</figcaption>
+      <figcaption>THE SEEKUR APP · ILLUSTRATION, NO REAL FOOTAGE</figcaption>
       <div class="corners" aria-hidden="true"><span class="tl"></span><span class="tr"></span></div>
       <div class="frame">
         <div class="bar" aria-hidden="true"><b></b><b></b><b></b></div>
-        <img src="assets/app-live.jpg" width="1850" height="1016" alt="The Seekur app watching a store camera: a person putting an item into a backpack is framed and flagged as possible concealment, with an alert waiting for Confirm theft or Dismiss.">
+        <div class="mock" role="img" aria-label="An illustration of the Seekur app: a wall of four camera feeds shown as black placeholders, one with a detection frame around a person, and a panel of alerts waiting for Confirm theft or Dismiss.">
+          <div class="rail" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+          <div class="wall" aria-hidden="true">
+            <div class="cam hot"><span>AISLE 3 · LIVE</span><em>0.94</em><div class="box"><small>POSSIBLE CONCEALMENT</small><b></b><b></b><b></b><b></b></div></div>
+            <div class="cam"><span>ENTRANCE · LIVE</span></div>
+            <div class="cam"><span>CHECKOUT · LIVE</span></div>
+            <div class="cam"><span>STOCK ROOM · LIVE</span></div>
+          </div>
+          <div class="side" aria-hidden="true">
+            <h4>Needs review</h4>
+            <div class="al"><div class="th"></div><strong>Possible concealment · Aisle 3</strong><p>A hand went into a bag. The movement looks like hiding an item.</p><div class="b"><span>Confirm theft</span><span>Dismiss</span></div></div>
+            <div class="al done"><div class="th"></div><strong>Dismissed · Entrance</strong><p>Checked by you. This camera learns from it.</p></div>
+          </div>
+        </div>
       </div>
     </figure>
   </div>
@@ -320,7 +384,7 @@ footer a{color:var(--on-green)}
     <div class="stats">
       <div class="stat"><b>93%</b><p>of alerts were real thefts, so your staff rarely chase a false alarm.</p></div>
       <div class="stat"><b>3.5%</b><p>of normal shopping clips raised an alert: people browsing, holding products, using phones.</p></div>
-      <div class="stat"><b>46%</b><p>of staged thefts were caught on the default setting. About half, and that number is what learning will raise.</p></div>
+      <div class="stat"><b>46%</b><p>of staged thefts were caught on the default setting. About half. This is the built-in model, before any learning on your own cameras.</p></div>
     </div>
 
     <div class="table-wrap">
@@ -368,7 +432,7 @@ footer a{color:var(--on-green)}
         <ul>
           <li>Treat alerts as a <b>second pair of eyes</b>, not a guarantee.</li>
           <li>The clips were filmed in a room set up like a shop. <b>Real stores are harder</b>: crowds, shelves in the way, ceiling cameras.</li>
-          <li>These figures are for today's model. Every new model has to beat them before it reaches you.</li>
+          <li>These figures are for the built-in model, before it learns anything from your cameras. Your own store will differ.</li>
         </ul>
       </div>
     </div>
@@ -380,15 +444,19 @@ footer a{color:var(--on-green)}
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Gets better over time</p>
-      <h2>Every store makes every store safer.</h2>
-      <p class="lede">When you confirm or dismiss an alert, that clip teaches Seekur what theft looks like, and what it doesn't. It learns from every Seekur store, not just yours.</p>
-      <p><span class="soon">Built in · the first improved model ships once enough stores have confirmed alerts</span></p>
+      <h2>It learns your store, camera by camera.</h2>
+      <p class="lede">Taking a phone off a table and pocketing it is theft in a phone shop and an ordinary moment in a café. So Seekur doesn't mix stores: every camera learns only from what <i>you</i> confirm or dismiss on that camera, on your own computer.</p>
+      <p><span class="soon">On your computer · nothing is shared with other stores</span></p>
     </div>
     <div class="loop">
       <div><span class="n">01</span><h3>You decide</h3><p>Confirm or dismiss an alert as usual. That's the only thing you do.</p></div>
-      <div><span class="n">02</span><h3>The clip joins the library</h3><p>It's added to the Seekur learning library with your answer, as agreed when you sign up.</p></div>
-      <div><span class="n">03</span><h3>A new model has to win</h3><p>It's tested on a fixed set of clips. It ships only if it catches more thefts without more false alarms.</p></div>
-      <div><span class="n">04</span><h3>Your app updates itself</h3><p>The new model downloads in the background and takes over without a restart or a gap in watching.</p></div>
+      <div><span class="n">02</span><h3>The computer keeps the clip</h3><p>Seekur doesn't record everything: your recorder does that. It keeps only the clip of each alert and your answer, for 1, 3 or 7 days, as you choose. What the camera learns from your answers is kept as a small record of body points, with no video, for up to 90 days.</p></div>
+      <div><span class="n">03</span><h3>The camera tries to improve</h3><p>About once a day, a camera with enough decisions (around 16) trains a new version of itself in the background.</p></div>
+      <div><span class="n">04</span><h3>It has to win to stay</h3><p>The new version is tested on decisions it never trained on. It replaces the old one, silently and without a restart, only if it does better and catches no fewer thefts.</p></div>
+    </div>
+    <div class="teach">
+      <h3>Or teach it faster yourself.</h3>
+      <p>Add your own clips from a camera and tag each one as <b>theft</b> or <b>normal</b>. Show it the staff putting a phone in a pocket, or a customer taking their own keys, and tell it those are fine. Seekur reads the body movement in each clip, keeps only that (never the video), and starts learning straight away instead of waiting for the daily check.</p>
     </div>
   </div>
 </section>
@@ -400,10 +468,68 @@ footer a{color:var(--on-green)}
       <h2>Smart, without being creepy.</h2>
     </div>
     <div class="grid3">
-      <div class="card"><svg aria-hidden="true"><use href="#i-home"/></svg><h3>Video stays in your store</h3><p>Live video and recordings are analysed and kept on your own computer. Only the clips of alerts you confirm or dismiss go to the learning library, and alert snapshots go to the phone apps you connect.</p></div>
+      <div class="card"><svg aria-hidden="true"><use href="#i-home"/></svg><h3>Video stays in your store</h3><p>Live video is analysed on your own computer and never uploaded. Seekur keeps only the clips of alerts, for as long as you choose, and learns from them there. What it learns is kept as a small record of body points, with no video, for up to 90 days. Alert snapshots go to the phone apps you connect.</p></div>
       <div class="card"><svg aria-hidden="true"><use href="#i-scan"/></svg><h3>No face recognition</h3><p>Seekur reads body movement and bags, never faces. It doesn't know who anyone is, and doesn't try.</p></div>
       <div class="card"><svg aria-hidden="true"><use href="#i-confirm"/></svg><h3>A person decides</h3><p>Every alert is a "please check this". Nothing is escalated and no alarm sounds until someone confirms.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Pricing</p>
+      <h2>Pay per camera. Start with a free trial.</h2>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Core</h3>
+        <div><span class="price">$6</span></div>
+        <p class="per">per camera, per month</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Theft detection</b> on every camera</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Phone alerts with <b>Confirm and Dismiss</b></span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>The <b>alarm</b>: speakers or a smart plug</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Learns each camera</b> from your decisions, on your computer</span></li>
+        </ul>
+      </div>
+      <div class="plan plus">
+        <h3>Plus</h3>
+        <div><span class="price">$9</span></div>
+        <p class="per">per camera, per month</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Everything in Core</b></span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Staff-only areas</b>: someone in a stock room or behind the till</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>After hours</b>: anyone seen while the store is closed</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Person down</b>: someone lying on the floor (checked on test images, not yet in a real store)</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="trial-note">Every new store gets 14 days of Plus free, no card needed. After the trial, live view keeps working; detection needs Core or Plus.</p>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What you need</p>
+      <h2>A computer that can keep up.</h2>
+      <p class="lede">Theft detection checks every camera five times a second, so the processor is what limits how many cameras one computer can watch. Seekur measures your computer the first time you open it and tells you its number.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="specs">
+        <thead><tr><th></th><th>Minimum: 1 camera</th><th>Recommended: per camera</th></tr></thead>
+        <tbody>
+          <tr><td>Processor</td><td>A recent 4-core, 8-thread processor. Our 2018 test laptop (Intel Core i5-8300H) is right at the limit, so aim above it</td><td>About 3 cores of that class for each camera. For example, an 8-core processor for 2 cameras, a 12-core one for 3 or 4</td></tr>
+          <tr><td>Memory</td><td>8 GB</td><td>16 GB, if the computer does other work too</td></tr>
+          <tr><td>Graphics</td><td>Not needed</td><td>Optional, and it can let one computer watch more cameras. Windows: any DirectX 12 graphics chip (NVIDIA, AMD, Intel). Mac: Apple silicon. Linux: an NVIDIA chip with its driver (version 525 or newer) and an optional download of about 2 GB. Seekur tests it on your computer first and only uses it if it gives the same answers as the processor and is clearly faster</td></tr>
+          <tr><td>Disk space</td><td>5 GB free</td><td>10 GB free. Seekur keeps only alert clips, a few MB each</td></tr>
+          <tr><td>Cameras</td><td>IP camera that streams RTSP</td><td>On a wired network, not Wi-Fi</td></tr>
+          <tr><td>System</td><td colspan="2">Windows 10 or 11 (64-bit) · macOS 14 or later on Apple silicon · 64-bit desktop Linux such as Ubuntu 22.04</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="spec-note"><b>How we got these numbers.</b> On a 2018 laptop (4 cores, 8 threads) Seekur completed 5 to 7 theft checks a second in total, depending on what else the computer was doing. One camera needs 5, and Seekur keeps 15% spare, so that laptop sometimes counts as one camera and sometimes as none. Each extra camera needs roughly three more cores of the same kind. We have only measured one computer so far, and none of the graphics options yet on real graphics hardware, so we make no promise about how much faster they are. Treat the table as a guide: the speed test Seekur runs on your computer, for the processor and for each graphics option, is the number to trust.</p>
   </div>
 </section>
 
@@ -461,13 +587,14 @@ footer a{color:var(--on-green)}
       <h2>Good to know.</h2>
     </div>
     <div class="faq">
-      <details><summary>Will it catch every shoplifter?</summary><p>No camera system does. On staged footage, today's model caught about half of concealments, and 93% of its alerts were real. Each new model has to do better before it's released.</p></details>
-      <details><summary>Does video leave my store?</summary><p>Live video and recordings stay on your computer. Only clips of alerts you confirm or dismiss go to the Seekur learning library, which you agree to when you sign up. Alert snapshots go to the phone apps you connect.</p></details>
+      <details><summary>Will it catch every shoplifter?</summary><p>No camera system does. On staged footage, the built-in model caught about half of concealments, and 93% of its alerts were real. A camera only switches to a newer version of itself if that does better on your own decisions without catching fewer thefts.</p></details>
+      <details><summary>Does video leave my store?</summary><p>No. Live video is analysed on your computer. Seekur's servers only handle your account, your subscription and the phone Confirm and Dismiss buttons. The clips of alerts stay on your computer and are deleted after 1, 3 or 7 days, as you choose. A small record of body points (no video, no images) is kept for up to 90 days so each camera can keep learning. Alert snapshots go to the phone apps you connect.</p></details>
       <details><summary>Do I need new cameras?</summary><p>Usually not. Any IP camera that can stream over RTSP works, and almost all of them can.</p></details>
       <details><summary>Do I need to install a Seekur app on my phone?</summary><p>No. Alerts come through apps like ntfy or Telegram, which are free. Seekur shows you how to connect each one.</p></details>
-      <details><summary>What happens when Seekur gets better?</summary><p>Your app downloads the new model in the background and switches to it without a restart. You'll see which version is running in Settings.</p></details>
-      <details><summary>Is there a free trial?</summary><p>Yes. Every new store gets 14 days with everything switched on. After that, live view and recording keep working, and theft detection needs a subscription.</p></details>
-      <details><summary>What if the computer is slow?</summary><p>Seekur checks each camera five times a second. On a slow computer it does fewer checks and tells you so on that camera, because detection is less reliable then. Fewer cameras or a faster computer fix it.</p></details>
+      <details><summary>How does Seekur learn?</summary><p>Each camera learns from your Confirm and Dismiss decisions on that camera, on your computer, so a phone shop and a café don't confuse each other. About once a day it tries a new version of itself and switches only if that does better on decisions it hasn't trained on. You can see each camera's progress in Settings, add your own tagged clips to teach it faster, and start a camera over at any time.</p></details>
+      <details><summary>Is there a free trial?</summary><p>Yes. Every new store gets 14 days of Plus, with everything switched on. After that, live view keeps working, and detection needs Core ($6 per camera a month) or Plus ($9).</p></details>
+      <details><summary>What computer do I need?</summary><p>See the <a href="#specs">specs table</a>. The first time you open Seekur, it checks your processor, memory and graphics chip, tests which of them can run the detection and how fast, picks the fastest one that passes, and tells you how many cameras your computer can watch. You can change the choice in Settings.</p></details>
+      <details><summary>How many cameras can my computer handle?</summary><p>Theft detection checks each camera five times a second. Seekur measures how fast your computer is while it runs and tells you how many cameras it can watch for theft. It watches that many, in the order you choose, and keeps showing the rest live. If the computer gets busier or freer, it adjusts by itself. When you subscribe, Seekur suggests paying only for the cameras your computer can actually watch.</p></details>
     </div>
   </div>
 </section>
