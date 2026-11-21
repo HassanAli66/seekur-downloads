@@ -251,6 +251,7 @@ td{font-variant-numeric:tabular-nums}
 .os .btn.live{background:var(--brass);border-color:var(--brass);color:#1B1606}
 .os .btn.live:hover{background:#DDBC80}
 .first-run{font-size:13.5px;color:var(--text-sub)}
+.os .first-run{margin-top:12px}
 .first-run code{font-family:var(--mono);font-size:12px;word-break:break-all;background:var(--bg);padding:2px 5px;border-radius:5px}
 .dl-note{margin-top:28px;color:var(--text-sub);font-size:15px;max-width:70ch}
 
@@ -591,21 +592,21 @@ footer a{color:var(--on-green)}
     <div class="dl">
       <div class="os">
         <div class="logo"><img src="assets/windows.svg" alt="Windows" width="56" height="56"></div>
-        <div><h3>Windows</h3><p>Windows 10 and 11, 64-bit.</p></div>
+        <div><h3>Windows</h3><p>Windows 10 and 11, 64-bit.</p>
+          <p class="first-run" hidden>The installer isn't code-signed yet, so Windows may say "Windows protected your PC". Click <b>More info</b>, then <b>Run anyway</b>.</p></div>
         <a class="btn dl-btn" data-asset="Seekur-Setup.exe" aria-disabled="true">Coming soon</a>
-        <p class="first-run" hidden>The installer isn't code-signed yet, so Windows may say "Windows protected your PC". Click <b>More info</b>, then <b>Run anyway</b>.</p>
       </div>
       <div class="os">
         <div class="logo"><span class="macos">macOS</span></div>
-        <div><h3>macOS</h3><p>Apple silicon (M1 or newer), macOS 14 or later.</p></div>
+        <div><h3>macOS</h3><p>Apple silicon (M1 or newer), macOS 14 or later.</p>
+          <p class="first-run" hidden>Open the file and drag Seekur to Applications. The first time, right-click Seekur and choose <b>Open</b>, because it isn't notarised by Apple yet.</p></div>
         <a class="btn dl-btn" data-asset="Seekur.dmg" aria-disabled="true">Coming soon</a>
-        <p class="first-run" hidden>Open the file and drag Seekur to Applications. The first time, right-click Seekur and choose <b>Open</b>, because it isn't notarised by Apple yet.</p>
       </div>
       <div class="os">
         <div class="logo"><img class="tux" src="assets/tux.svg" alt="Linux" width="57" height="66"></div>
-        <div><h3>Linux</h3><p>64-bit desktop Linux, such as Ubuntu 22.04 or newer.</p></div>
+        <div><h3>Linux</h3><p>64-bit desktop Linux, such as Ubuntu 22.04 or newer.</p>
+          <p class="first-run" hidden>Or install with one command in a terminal: <code>curl -fsSL https://hassanali66.github.io/seekur-downloads/install.sh | bash</code></p></div>
         <a class="btn dl-btn" data-asset="seekur-linux.tar.gz" aria-disabled="true">Coming soon</a>
-        <p class="first-run" hidden>Or install with one command in a terminal: <code>curl -fsSL https://hassanali66.github.io/seekur-downloads/install.sh | bash</code></p>
       </div>
     </div>
     <p class="dl-note">You'll need a computer in the store that stays on, and IP cameras that can stream video over the network (RTSP), which almost all can.</p>
